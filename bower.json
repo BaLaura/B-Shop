@@ -1,0 +1,14 @@
+{
+  "name": "b-shop",
+  "version": "1.0.0",
+  "authors": [
+    "Interns of Barandi"
+  ],
+  "private": true,
+  "license": "Proprietary",
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*",
+    "bootstrap": "*"
+  }
+}
