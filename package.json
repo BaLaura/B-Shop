@@ -1,0 +1,8 @@
+{
+	"name": "b-shop",
+	"dependencies": {
+		"express": "*",
+		"mongoose": "*",
+		"body-parser": "*"
+	}
+}
