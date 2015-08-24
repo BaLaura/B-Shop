@@ -52,4 +52,3 @@ var GroupRouter = function (app, Mongoose){
 };
 
 module.exports = GroupRouter;
-}

@@ -1,7 +1,7 @@
 var Group = function(Mongoose) {
 	var schema = Mongoose.Schema({
 		name: String,
-		users: [Mongoose.Schema.objectId],
+		users: [Mongoose.Schema.Types.ObjectId],
 		owner: Number 
     });
 

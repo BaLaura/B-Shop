@@ -1,16 +1,16 @@
 var List = function(Mongoose) {
 	var schema = Mongoose.Schema({
        title: String,
-       owner: ObjectId,
-       status: int,
+       owner: Mongoose.Schema.Types.ObjectId,
+       status: Number,
        created: Date,
        deadline: Date,
        users: [Mongoose.Schema.Types.ObjectId],
        products: [{
        		name: String,
-       		quantity: int,
+       		quantity: Number,
        		comment: {
-       			userID: ObjectId,
+       			userID: [Mongoose.Schema.Types.ObjectId],
        			text: String,
        			created: Date
        		}
