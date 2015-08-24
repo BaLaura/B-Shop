@@ -3,6 +3,11 @@
 	"dependencies": {
 		"express": "*",
 		"mongoose": "*",
-		"body-parser": "*"
+		"body-parser": "*",
+		"grunt": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-contrib-sass": "*",
+		"grunt-contrib-connect": "*",
+		"grunt-notify": "*"
 	}
 }
