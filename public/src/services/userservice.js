@@ -7,6 +7,11 @@ angular.module("b-shop")
 			getUser: function(id, data){
 				return httpservice.handle("GET","/user/" + id, data)
 			},
+			getUsersList: function(name) {
+				return httpservice.handle("POST", "/user/name", {
+					name: name
+				});
+			},
 			updateUser: function(data){
 				return httpservice.handle("PUT","/user/" + data._id, data)
 			}

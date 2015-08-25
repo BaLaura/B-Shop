@@ -15,7 +15,8 @@ var List = function(Mongoose) {
        			created: Date
        		}
        }],
-       event: Date
+       event: String,
+       eventDate: Date
 	});
 
 	var List = Mongoose.model("List", schema);

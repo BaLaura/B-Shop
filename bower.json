@@ -9,6 +9,10 @@
   "dependencies": {
     "angular": "*",
     "angular-route": "*",
-    "bootstrap": "*"
+    "bootstrap": "*",
+    "angularjs-datepicker": "*"
+  },
+  "resolutions": {
+    "angular": "1.4.4"
   }
 }

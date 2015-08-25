@@ -16,12 +16,19 @@ var UserRouter = function(app, Mongoose) {
 		});
 	});
 
+	app.post("/user/name", function(request, response) {
+		User.find({ name: {$regex : new RegExp("^" + request.body.name, "i")}}, function(error, result) {
+			response.status(200).json(result);
+		});
+	});
+
 	/**
 	 * Create a new user.
 	 */
 	app.post("/user", function(request, response) {
 		var user = new User({
 			name: request.body.name,
+			username: request.body.username,
 			email: request.body.email,
 			password: request.body.password,
 			type: request.body.type
@@ -42,6 +49,7 @@ var UserRouter = function(app, Mongoose) {
 			} else {
 				result.name = request.body.name;
 				result.email = request.body.email;
+				result.username = request.body.username;
 				result.password = request.body.password;
 				result.type = request.body.type;
 				result.save(function(error, result) {

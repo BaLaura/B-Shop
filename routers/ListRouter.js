@@ -6,7 +6,7 @@ var ListRouter = function(app, Mongoose) {
 	 * Get all lists.
 	 */
 	app.get("/lists", function(request, response) {
-		Project.find(function(error, result) {
+		List.find(function(error, result) {
 			response.status(200).json(result);
 		});
 	});
@@ -22,6 +22,7 @@ var ListRouter = function(app, Mongoose) {
 					status: request.body.status,
 					created: request.body.created,
 					deadline: request.body.deadline,
+					eventDate: request.body.eventDate,
 					users: request.body.users,
 					products: request.body.products,
 					event: request.body.event
