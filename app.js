@@ -11,7 +11,8 @@ function cors(req, res, next) {
 
     next();
 };
-Mongoose.connect("localhost", "b-shop");
+
+Mongoose.connect("mongodb://localhost:27017/test");
 
 app.use(cors);
 app.use(bodyParser.urlencoded({ extended: false }));
