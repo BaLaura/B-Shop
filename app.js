@@ -11,6 +11,7 @@ function cors(req, res, next) {
 
     next();
 };
+
 Mongoose.connect("localhost", "b-shop");
 
 app.use(cors);

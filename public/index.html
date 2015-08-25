@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<script src="./bower_components/angular/angular.min.js"></script>
-		<script src="./bower_components/angular-route/angular-route.min.js"></script>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+		<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 		<script src="./src/main.js"></script>
 		<script src="./src/controllers/loginCtrl.js"></script>
 		<script src="./src/services/httpservice.js"></script>
 		<script src="./src/services/userservice.js"></script>
-
-
+		<script type="text/javascript" src="./src/controllers/shoppinglistCtrl.js"></script>
+		<script src="/src/controllers/createList.js"></script>
 	</head>
-
 	<body ng-app="b-shop">
-	<div ng-view=""> 
-
-	</div>
-
+		<div class="header">
+			<div class="wrapper">
+				<div class="logo"></div>
+				<button class="btn btn-default">Log In</button>
+			</div>
+		</div>
+		<div ng-view=""></div>
+		<div class="footer">
+			<div class="wrapper">
+				<div class="copyright">Copyright | Barandi 2015</div>
+				<div class="social">
+					<ul>
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Linkedin</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
