@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		
+		<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script src="./bower_components/angular/angular.min.js"></script>
+		<script src="./bower_components/angular-route/angular-route.min.js"></script>
+		<script src="./src/main.js"></script>
+		<script src="./src/controllers/loginCtrl.js"></script>
+		<script src="./src/services/httpservice.js"></script>
+
+
 	</head>
 
-	<body>
-		<p>Hello</p>
+	<body ng-app="b-shop">
+	<div ng-view=""> 
+
+	</div>
+
 	</body>
 </html>
