@@ -1,5 +1,5 @@
 angular.module('b-shop')
-    .controller('loginCtrl', function($scope, $rootScope, userservice) {
+    .controller('loginCtrl', function($scope, $rootScope, $location, userservice) {
     	$scope.loginEvent = function () { 
     		console.log('as,das,d');
     		var success = false;
@@ -29,8 +29,8 @@ angular.module('b-shop')
 	    		} else {
 	    			window.alert("Wrong email or password")
 	    		}
-			});
-    	}
 
-    	
+			});
+
+    	}    	
     });
