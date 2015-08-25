@@ -38,7 +38,11 @@ var UserRouter = function(app, Mongoose) {
 			response.status(200).json(result);
 		});
 	});
-
+	app.post("/login", function(request,response){
+		User.findOne({email:request.body.mail,password:request.body.password},function(error, result){
+			response.status(200).json(result);
+		})
+	});
 	/**
 	 * Update an user.
 	 */
@@ -48,8 +52,8 @@ var UserRouter = function(app, Mongoose) {
 				response.status(200).json(result);
 			} else {
 				result.name = request.body.name;
-				result.email = request.body.email;
 				result.username = request.body.username;
+				result.email = request.body.mail;
 				result.password = request.body.password;
 				result.type = request.body.type;
 				result.save(function(error, result) {
@@ -58,7 +62,6 @@ var UserRouter = function(app, Mongoose) {
 			}
 		});
 	});
-
 	app.delete("/user/:id", function(request, response) {
 		User.remove({_id: request.params.id}, function(error, result) {
 			response.status(200).json(result);

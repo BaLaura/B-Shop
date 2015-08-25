@@ -4,6 +4,10 @@ angular.module("b-shop",["ngRoute", "720kb.datepicker"])
 			templateUrl:"./src/views/loginView.tpl.html",
 			controller: "loginCtrl"
 		});
+		$routeProvider.when("/dash",{
+			templateUrl:"./src/views/dashboard.tpl.html",
+			controller: "dashboardCtrl"
+		});
 		$routeProvider.when("/list",{
 			templateUrl:"./src/views/createList.tpl.html",
 			controller: "createListCtrl"

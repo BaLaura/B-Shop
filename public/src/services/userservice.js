@@ -14,6 +14,13 @@ angular.module("b-shop")
 			},
 			updateUser: function(data){
 				return httpservice.handle("PUT","/user/" + data._id, data)
+			},
+			login: function(mail,password){
+				return httpservice.handle("POST","/login",{
+					mail: mail,
+					password: password
+				});
 			}
+
 		};
 	});

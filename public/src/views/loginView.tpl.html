@@ -1,11 +1,11 @@
 <div>
 	<div class="input-group">
-		<span class="input-group-addon" id="LoginUserName">Username:</span>
-		<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+		<span class="input-group-addon" >Username:</span>
+		<input type="text" class="form-control" ng-model="eMail" placeholder="eMail" aria-describedby="basic-addon1">
 	</div>
 	<div class="input-group">
-		<span class="input-group-addon" id="LoginPassword">Password:</span>
-		<input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+		<span class="input-group-addon" >Password:</span>
+		<input type="password" class="form-control" ng-model="password" placeholder="Password" aria-describedby="basic-addon1">
 	</div>
-	<button type="button" class="btn btn-default navbar-btn" id="submit">Submit</button>
+	<button type="button" class="btn btn-default navbar-btn" ng-click="loginEvent()">Submit</button>
 </div>
