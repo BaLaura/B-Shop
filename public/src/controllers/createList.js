@@ -8,9 +8,9 @@ angular.module('b-shop')
 			event: "",
 			eventDate: "",
 			deadline: "",
-			users: [],
 			created: new Date()
 		}
+		$scope.onlyUsers = [];
 
 		/* Date Formats */
 		var year = $scope.listItems.created.getFullYear();
@@ -33,7 +33,7 @@ angular.module('b-shop')
 
 		/* Save list - values from form */
 		$scope.saveList = function() {
-			listservice.createList($scope.listItems).success(function(data) {
+			listservice.createList($scope.listItems, $scope.onlyUsers).success(function(data) {
 				$scope.listItems = data;
 				$rootScope.redirectTo('/shoppinglists');
 			});
@@ -57,17 +57,18 @@ angular.module('b-shop')
 		}
 
 		/* Add user to invited list/Remove user from invited list*/
-		$scope.invitedUsers = [];
-		$scope.inviteUser = function() {
-			$scope.invitedUsers.push(this.n);
-			var position = $scope.userList.indexOf(this.n);
-			$scope.userList.splice(position, 1);
+		$scope.inviteUser = function(user) {
+			$scope.onlyUsers.push(user);
 		}
-		$scope.uninviteUser = function() {
-			var position = $scope.invitedUsers.indexOf(this.m);
-			console.log(this.m)
-			$scope.userList.push(this.m);
-			console.log($scope.userList)
-			$scope.invitedUsers.splice(position, 1);
+		$scope.uninviteUser = function(index) {
+			$scope.onlyUsers.splice(index, 1);
+		}
+		$scope.filterInvitedUsers = function(item) {
+			for ( var i=0; i<$scope.onlyUsers.length; i++ ) {
+				if ( item._id == $scope.onlyUsers[i]._id ) {
+					return false;
+				}
+			}
+			return true;
 		}
 	});
