@@ -2,6 +2,7 @@ var User = function(Mongoose) {
     var schema = Mongoose.Schema({
         name: String,
         email: String,
+        username: String,
         password: String,
         type: Number
     });

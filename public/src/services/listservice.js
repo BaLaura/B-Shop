@@ -1,17 +1,17 @@
 angular.module("b-shop")
-	.service("listService",function(httpservice,$rootScope){
+	.service("listservice",function(httpservice,$rootScope){
 		return {
 			getLists: function(){
-				return httpservice.handle("GET","/shoppinglists");
+				return httpservice.handle("GET","/list");
 			},
 			getList: function(id, data){
-				return httpservice.handle("GET","/shoppinglists/" + id, data)
+				return httpservice.handle("GET","/list/" + id, data)
 			},
-			createList: function(id, data){
-				return httpservice.handle("POST","/shoppinglists/", data)
+			createList: function(data){
+				return httpservice.handle("POST","/list", data)
 			},
 			updateList: function(data){
-				return httpservice.handle("PUT","/shoppinglists/" + data._id, data)
+				return httpservice.handle("PUT","/list/" + data._id, data)
 			}
 		};
 	});

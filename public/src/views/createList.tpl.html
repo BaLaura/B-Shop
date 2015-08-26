@@ -1,34 +1,36 @@
-<div class="container">
+<div class="container" ng-controller="createListCtrl">
 	<h1>Create List ! </h1>
 
 	<form>
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" placeholder="Name">
+			<input type="text" class="form-control" placeholder="Name" ng-model="listItems.title">
 		</div>
 		
 		<div class="form-group">
     		<label for="event">Event</label>
-    		<input type="date" class="form-control" placeholder="Event Date">
+    		<input type="text" class="form-control" placeholder="Event Category" ng-model="listItems.event">
   		</div>
 
   		<div class="form-group">
     		<label for="date">Date</label>
-    		<input type="date" class="form-control" placeholder="current Date">
+    		<datepicker date-min-limit="{{minDate}}" date-format="MMMM dd, yyyy">
+          <input ng-model="listItems.eventDate" type="text"/>
+        </datepicker>
  		</div>
 
  		<div class="form-group">
     		<label for="deadline">Deadline</label>
-    		<input type="date" class="form-control" placeholder="Deadline">
+        <datepicker date-min-limit="{{minDate}}" date-format="MMMM dd, yyyy">
+          <input ng-model="listItems.deadline" type="text"/>
+        </datepicker>
   		</div>
 
-  		<div class="checkbox">
-    		<label>
-      			<input type="checkbox">User
-    		</label>
+  		<div class="select-users">
+        <input type="text" ng-model="findUser" ng-change="filterUsers()">
   		</div>
  
-		<button ng-click= "go('/_id')" type="submit" class="btn btn-primary btn-lg">Create</button>
+		<button ng-click="saveList()" type="submit" class="btn btn-primary btn-lg">Create</button>
 
   	</form>
 </div>

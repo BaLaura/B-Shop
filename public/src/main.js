@@ -1,4 +1,4 @@
-angular.module("b-shop",["ngRoute"])
+angular.module("b-shop",["ngRoute", "720kb.datepicker"])
 	.config(function($routeProvider){
 		$routeProvider.when("/",{
 			templateUrl:"./src/views/loginView.tpl.html",
@@ -29,4 +29,7 @@ angular.module("b-shop",["ngRoute"])
         }
       }
     });
+    $rootScope.redirectTo = function(location) {
+			$location.path(location);
+		}
   });
