@@ -19,4 +19,14 @@ angular.module("b-shop",["ngRoute"])
 		$routeProvider.otherwise({
 			redirectTo: "/"
 		});
-	});
+	}).run(function($rootScope, $location) {
+
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ($rootScope.loggedInUser == null) {
+        if ( next.templateUrl === "src/views/loginView.tpl.html") {
+        } else {
+          $location.path("/");
+        }
+      }
+    });
+  });
