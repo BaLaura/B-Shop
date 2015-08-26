@@ -39,16 +39,35 @@ angular.module('b-shop')
 			});
 		};
 
-		/* Filter users search */
+		/* Filter users search and show results*/
 		$scope.findUser = "";
-		$scope.showList = [];
+		$scope.userList = [];
+		$scope.showList = false;
 		$scope.filterUsers = function() {
 			if ( $scope.findUser.length > 2 ) {
 				userservice.getUsersList($scope.findUser)
 					.success(function(data) {
-						$scope.showList = data;
-						console.log($scope.showList);
+						$scope.userList = data;
+						$scope.showList = true;
 					});
+			} else {
+				$scope.userList = [];
+				$scope.showList = false;
 			}
+		}
+
+		/* Add user to invited list/Remove user from invited list*/
+		$scope.invitedUsers = [];
+		$scope.inviteUser = function() {
+			$scope.invitedUsers.push(this.n);
+			var position = $scope.userList.indexOf(this.n);
+			$scope.userList.splice(position, 1);
+		}
+		$scope.uninviteUser = function() {
+			var position = $scope.invitedUsers.indexOf(this.m);
+			console.log(this.m)
+			$scope.userList.push(this.m);
+			console.log($scope.userList)
+			$scope.invitedUsers.splice(position, 1);
 		}
 	});

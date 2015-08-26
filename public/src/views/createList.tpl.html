@@ -28,6 +28,12 @@
 
   		<div class="select-users">
         <input type="text" ng-model="findUser" ng-change="filterUsers()">
+        <ul class="found-users" ng-show="showList == true">
+          <li ng-repeat="n in userList" ng-click="inviteUser()">{{ n.name }}</li>
+        </ul>
+        <div class="invited-users">
+          <div class="one-user" ng-repeat="m in invitedUsers">{{ m.name }}<span class="delete-invited-user" ng-click="uninviteUser()">x</span></div>
+        </div>
   		</div>
  
 		<button ng-click="saveList()" type="submit" class="btn btn-primary btn-lg">Create</button>
