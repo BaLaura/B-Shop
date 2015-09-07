@@ -14,26 +14,29 @@
 			</tr>
 			<tr ng-if="emptyRow">
 				<td>
-					<input type="text" ng-model="emptyRow.name">
+					<input ng-if="!editMode" type="text" ng-model="emptyRow.name">
 				</td>
 				<td>
-					<input type="text" ng-model="emptyRow.quantity">
+					<input ng-if="!editMode" type="text" ng-model="emptyRow.quantity">
 				</td>
 				<td>
-					<input type="text" ng-model="emptyRow.comment.text">
+					<input ng-if="!editMode" type="text" ng-model="emptyRow.comment.text">
 				</td>
 				<td data ng-click="removeRow($index)">+</td>
 			</tr>
-			<tr id="index" ng-repeat="item in list.products">
-				<td ng-bind="item.name">{{$index}}</td>
-				<td ng-bind="item.quantity"></td>
-				<td ng-bind="item.comment.text"></td>
+			<tr  ng-repeat="item in list.products track by $index">
+				<td ng-if="!editMode" ng-click="edit()" ng-bind="item.name">{{$index}}</td>
+				
+				<td ng-if="!editMode" ng-click="edit()" ng-bind="item.quantity"></td>
+				
+				<td ng-if="!editMode" ng-click="edit()" ng-bind="item.comment.text"></td>
+				
 				<td data-ng-click="removeRow($index)">+</td>
 			</tr>
 		</tbody>
 	</table>
 
 	<button type="submit" ng-click="addProduct()" class="btn btn-primary btn-lg">Save</button>
-	<button id="cancelButton" type="submit" ng-if="cancelRow" ng-click="cancel()" class="btn btn-primary btn-lg">Cancel</button>
+	<button ng-show="visible" type="submit" ng-click="cancel()" class="btn btn-primary btn-lg">Cancel</button>
 
 </div>
