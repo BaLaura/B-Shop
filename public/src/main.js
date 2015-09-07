@@ -16,6 +16,10 @@ angular.module("b-shop",["ngRoute", "720kb.datepicker"])
 			templateUrl: "src/views/shoppinglist.tpl.html",
 			controller: "shoppinglistCtrl"
 		});
+		$routeProvider.when("/users", {
+			templateUrl: "src/views/users.tpl.html",
+			controller: "usersCtrl"
+		});
 		$routeProvider.otherwise({
 			redirectTo: "/"
 		});
