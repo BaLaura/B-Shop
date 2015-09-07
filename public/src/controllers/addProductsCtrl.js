@@ -5,6 +5,7 @@ angular.module('b-shop')
 		//	$scope.list.push($scope.emptyRow);
 		//	$scope.emptyRow = null;
 		//};
+		
 		$scope.init = function(){
 			listservice.getList("55ed5b06f5e315b00e7ae5f7").success(function(data){
 				$scope.list = data;
@@ -22,7 +23,7 @@ angular.module('b-shop')
 		// }];
 
 		$scope.addProduct = function() {
-
+			
 			$scope.list.products.push($scope.emptyRow);
 
 			listservice.updateList($scope.list).success(function(data) {
@@ -31,38 +32,42 @@ angular.module('b-shop')
 				$timeout();
 			});
 
-			//$scope("hide").hide();
-
+			$scope.visible = false;
 		};
 
 
 		$scope.emptyRow;
-		$scope.cancelRow;
+		//$scope.editMode = true;
 
-		$scope.createCancelButton = function(){
-			if($scope.cancelRow){
-				return;
-			}
+		
+			
+				$scope.createEmptyRow = function() {
+					//$scope.editMode = true;
+					$scope.visible = true;
 
-			$scope("#cancelButton").show();
+					if ($scope.emptyRow) {
+						return;
+					}
+
+					$scope.emptyRow = {
+						name: "",
+						quantity: "",
+						comment: {
+							text: ""
+						}
+					};
+				};
+
+		
+			
+
+		$scope.cancel = function() {
+			$scope.emptyRow = null;
+			$scope.visible = false;
+
 		};
 
-		$scope.createEmptyRow = function() {
-			if ($scope.emptyRow) {
-				console.log()
-				return;
-			}
-
-			$scope.emptyRow = {
-				name: "",
-				quantity: "",
-				comment: {
-					text: ""
-				}
-			};
-
-			// $scope.list.splice(0, 0, emptyRow);
-		};
+	
 
 		$scope.removeRow = function (index) {
 
