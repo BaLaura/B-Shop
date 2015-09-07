@@ -2,4 +2,34 @@
 	<table>
 		<tr ng-repeat="user in userList" ng-bind="user.name"></tr>
 	</table>
+	<button type="button" class="btn btn-default navbar-btn" ng-click="addUser()">Add User</button>
+	<button type="button" class="btn btn-default navbar-btn" ng-click="addGroup()">Add Group</button>
+	<div class="input-group" ng-show="visible">
+		<span class="input-group-addon" id="sizing-addon2">Full Name</span>
+		<input ng-model="name" type="text" class="form-control" placeholder="Full Name" aria-describedby="sizing-addon2">
+		<span class="input-group-addon" id="sizing-addon2">eMail</span>
+		<input ng-model="email" type="text" class="form-control" placeholder="eMail" aria-describedby="sizing-addon2">
+		<span class="input-group-addon" id="sizing-addon2">Password</span>
+		<input ng-model="password" type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon2">
+	</div>
+	<div ng-show="visible">
+		<label>Is Admin?
+			<input type="checkbox" ng-model="checkbox" ng-true-value="1" ng-false-valuea="2">
+		</label>
+		<button type="button" class="btn btn-default navbar-btn" ng-click="saveUser()">Save User</button>
+		<button type="button" class="btn btn-default navbar-btn" ng-click="cancelUser()">Cancel</button>
+	</div>
+	<div class="input-group" ng-show="gVisible">
+		<span class="input-group-addon" id="sizing-addon2">Group Name</span>
+		<input ng-model="groupName" type="text" class="form-control" placeholder="Group Name" aria-describedby="sizing-addon2">
+	</div>
+	<div ng-show="gVisible">
+		<div ng-repeat="user in userList">
+			<span ng-bind="user.name"></span>
+		   <input type="checkbox" ng-click="userChecked(user)"/>
+	 	</div>
+	 	<button type="button" class="btn btn-default navbar-btn" ng-click="saveGroup()">Save</button>
+	 	<button type="button" class="btn btn-default navbar-btn" ng-click="cancelGroup()">Cancel</button>
+	</div>
+
 </div>

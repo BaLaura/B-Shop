@@ -25,7 +25,7 @@ var GroupRouter = function (app, Mongoose){
 
 		});
 
-		skill.save(function(error, result) {
+		group.save(function(error, result) {
 			response.status(200).json(result);
 		});
 	});

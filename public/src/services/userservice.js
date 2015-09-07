@@ -20,6 +20,9 @@ angular.module("b-shop")
 					mail: mail,
 					password: password
 				});
+			},
+			createUser: function(data){
+				return httpservice.handle("POST","/user", data);
 			}
 
 		};
