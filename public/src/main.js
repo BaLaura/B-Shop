@@ -16,19 +16,25 @@ angular.module("b-shop",["ngRoute", "720kb.datepicker"])
 			templateUrl: "src/views/shoppinglist.tpl.html",
 			controller: "shoppinglistCtrl"
 		});
+
+		$routeProvider.when("/list/:id", {
+			templateUrl: "src/views/addProducts.tpl.html",
+			controller: "addProductsCtrl"
+		});
+
 		$routeProvider.otherwise({
 			redirectTo: "/"
 		});
 	}).run(function($rootScope, $location) {
 
-    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ($rootScope.loggedInUser == null) {
-        if ( next.templateUrl === "src/views/loginView.tpl.html") {
-        } else {
-          $location.path("/");
-        }
-      }
-    });
+    // $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+    //   if ($rootScope.loggedInUser == null) {
+    //     if ( next.templateUrl === "src/views/loginView.tpl.html") {
+    //     } else {
+    //       $location.path("/");
+    //     }
+    //   }
+    // });
     $rootScope.redirectTo = function(location) {
 			$location.path(location);
 		}

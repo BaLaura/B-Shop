@@ -12,6 +12,16 @@ var ListRouter = function(app, Mongoose) {
 	});
 
 	/**
+	* Get a list.
+	*/
+	
+	app.get("/list/:id",function(request, response){
+		List.findOne().populate("users").exec(function(error,result){
+			response.status(200).json(result);
+		});
+	});
+
+	/**
 	 * Save a new list
 	 */
 	app.post("/list", function(request, response) {
@@ -49,6 +59,8 @@ var ListRouter = function(app, Mongoose) {
 			if (error || !result) {
 				response.status(200).json(result);
 			} else {
+
+				console.log(request.body);
 				result.title = request.body.title,
 				result.owner = request.body.owner,
 				result.status = request.body.status,

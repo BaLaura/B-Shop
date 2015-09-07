@@ -4,8 +4,8 @@ angular.module("b-shop")
 			getLists: function(){
 				return httpservice.handle("GET","/list");
 			},
-			getList: function(id, data){
-				return httpservice.handle("GET","/list/" + id, data)
+			getList: function(id){
+				return httpservice.handle("GET","/list/" + id);
 			},
 			createList: function(data, userList){
 				var newUserList =[]
@@ -17,6 +17,10 @@ angular.module("b-shop")
 			},
 			updateList: function(data){
 				return httpservice.handle("PUT","/list/" + data._id, data)
+			},
+			deleteList: function(data){
+				return httpservice.handle("DELETE","/list/" + data._id, data)
 			}
+
 		};
 	});
