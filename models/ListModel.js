@@ -5,7 +5,7 @@ var List = function(Mongoose) {
        status: Number,
        created: Date,
        deadline: Date,
-       users: [Mongoose.Schema.Types.ObjectId],
+       users: [{ type: Mongoose.Schema.Types.ObjectId, ref: 'User' }],
        products: [{
        		name: String,
        		quantity: Number,

@@ -29,10 +29,11 @@
   		<div class="select-users">
         <input type="text" ng-model="findUser" ng-change="filterUsers()">
         <ul class="found-users" ng-show="showList == true">
-          <li ng-repeat="n in userList" ng-click="inviteUser()">{{ n.name }}</li>
+          <li ng-repeat="n in userList | filter:filterInvitedUsers" ng-click="inviteUser(n)">{{ n.name }}</li>
         </ul>
+
         <div class="invited-users">
-          <div class="one-user" ng-repeat="m in invitedUsers">{{ m.name }}<span class="delete-invited-user" ng-click="uninviteUser()">x</span></div>
+          <div class="one-user" ng-repeat="m in onlyUsers">{{ m.name }}<span class="delete-invited-user" ng-click="uninviteUser($index)"> x</span></div>
         </div>
   		</div>
  

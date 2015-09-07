@@ -6,7 +6,7 @@ var ListRouter = function(app, Mongoose) {
 	 * Get all lists.
 	 */
 	app.get("/lists", function(request, response) {
-		List.find(function(error, result) {
+		List.find().populate("users").exec(function(error, result) {
 			response.status(200).json(result);
 		});
 	});
@@ -15,7 +15,11 @@ var ListRouter = function(app, Mongoose) {
 	 * Save a new list
 	 */
 	app.post("/list", function(request, response) {
-		console.log(request.body)
+		console.log(request.body);
+		User.find({_id: {$in: request.body.users}}, function(error, result) {
+			if ( error ) {
+				response.status(500).json(error);
+			} else {
 				var list = new List({
 					title: request.body.title,
 					owner: request.body.owner,
@@ -23,11 +27,10 @@ var ListRouter = function(app, Mongoose) {
 					created: request.body.created,
 					deadline: request.body.deadline,
 					eventDate: request.body.eventDate,
-					users: request.body.users,
+					users: result,
 					products: request.body.products,
 					event: request.body.event
 				});
-
 				list.save(function(error, result) {
 					if (error) {
 						response.status(500).json(error);
@@ -35,6 +38,8 @@ var ListRouter = function(app, Mongoose) {
 						response.status(200).json(result);
 					}
 				});
+			}
+		});
 	});
 	/**
 	* Edit a list
@@ -62,6 +67,13 @@ var ListRouter = function(app, Mongoose) {
 
 	app.delete("/list/:id", function(request, response) {
 		List.remove({_id: request.params.id}, function(error, result) {
+			response.status(200).json(result);
+		});
+	});
+
+	/* Delete all */
+	app.delete('/lists', function(request, response) {
+		List.remove(function(error, result) {
 			response.status(200).json(result);
 		});
 	});

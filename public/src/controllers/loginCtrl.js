@@ -1,7 +1,7 @@
 angular.module('b-shop')
     .controller('loginCtrl', function($scope, $rootScope, $location, userservice,loginservice) {
     	$rootScope.logged = false;
-    	if ((loginservice.getItem('email') == null)&&(loginservice.getItem('password')==null)){
+    	if (loginservice.getItem('user') == null){
 
 	    	$scope.loginEvent = function () { 
 	    		userservice.login($scope.eMail,$scope.password).success(function(data){
@@ -20,13 +20,11 @@ angular.module('b-shop')
 
 	    	}    	
     	} else {
-    		userservice.login(loginservice.getItem('email'),loginservice.getItem('password')).success(function(data){
-    			if (data != null){
-    				$rootScope.loggedInUser=data;
+    		if (loginservice.getItem('user')!= null){
+    				$rootScope.loggedInUser=loginservice.getItem('user');
     				$rootScope.logged = true;
     				window.alert('Welcome back!');
     				$location.path('/dash');
-    			}
-    		});
+    		};
     	}
     });

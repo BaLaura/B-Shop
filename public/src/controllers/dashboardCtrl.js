@@ -8,6 +8,7 @@ angular.module('b-shop')
 			}
 		}
 		$scope.logout = function(){
+			window.alert('Logged out')
 			loginservice.removeItem('user');
 			$rootScope.loggedInUser = null;
 	    	$location.path('/')
