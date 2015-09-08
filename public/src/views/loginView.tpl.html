@@ -1,4 +1,4 @@
-<div>
+<!--<div>
 	<div class="input-group">
 		<span class="input-group-addon" >Username:</span>
 		<input type="text" class="form-control" ng-model="eMail" placeholder="eMail" aria-describedby="basic-addon1">
@@ -8,4 +8,17 @@
 		<input type="password" class="form-control" ng-model="password" placeholder="Password" aria-describedby="basic-addon1">
 	</div>
 	<button type="button" class="btn btn-default navbar-btn" ng-click="loginEvent()">Submit</button>
+</div>-->
+
+<div class="container">
+
+	<form class="form-signin">
+		<h1 class="form-signin-heading text-muted">Sign In</h1>
+		<input type="text" ng-model="eMail" class="form-control" placeholder="eMail" required="" autofocus="">
+		<input type="password" ng-model="password" class="form-control" placeholder="Password" required="">
+		<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="loginEvent()">
+			Sign In
+		</button>
+	</form>
+
 </div>
