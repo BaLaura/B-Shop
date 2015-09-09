@@ -3,6 +3,14 @@
 	<head>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css">
+		<link rel="stylesheet" type="text/css" href="src/css/login.css">
+		<link rel="stylesheet" type="text/css" href="src/css/index.css">
+		<link rel="stylesheet" type="text/css" href="src/css/dashboard.css">
+
+		<!-- footer link -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -22,17 +30,19 @@
 		<script src="./src/services/loginservice.js"></script>
 		<script src="./src/services/groupservice.js"></script>
 		<script src="./src/controllers/addProductsCtrl.js"></script>
+
 	</head>
 	<body ng-app="b-shop">
-		<div class="header">
+		<div id="container">
+		<div id="header">
 			<div class="wrapper">
 				<div class="logo"></div>
 			</div>
 		</div>
 		<div ng-view=""></div>
-		<div class="footer">
+		<!--<div class="footer">
 			<div class="wrapper">
-				<div class="copyright">Copyright | Barandi 2015</div>
+				<div class="copyright" class="muted pull-right">Copyright | Barandi 2015</div>
 				<div class="social">
 					<ul>
 						<li>Facebook</li>
@@ -41,6 +51,19 @@
 					</ul>
 				</div>
 			</div>
+		</div>-->
+		<div id="footer">
+		 	<div class="text-center center-block">
+            	
+            	<br />
+              	  <a href="https://www.facebook.com/barandisolutions?fref=ts"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	           	 <a href=""><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	           	 <a href=""><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	           	 <a href="mailto:office@barandisolutions.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+			</div>
+			<br />
+			<div class="copyright" class="muted pull-right">Copyright | Barandi 2015</div>
+		</div>
 		</div>
 	</body>
 </html>
