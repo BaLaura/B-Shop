@@ -12,32 +12,20 @@
 			<tr>
 				<td ng-click="createEmptyRow()">Add product</td>
 			</tr>
-			<tr ng-if="emptyRow">
-				<td>
-					<input  type="text" ng-model="emptyRow.name">
-				</td>
-				<td>
-					<input  type="text" ng-model="emptyRow.quantity">
-				</td>
-				<td>
-					<input  type="text" ng-model="emptyRow.comment.text">
-				</td>
-				<td data ng-click="removeRow($index)">+</td>
-			</tr>
 			<tr  ng-repeat="item in list.products track by $index">
-				<td ng-if="editMode" ng-click="edit($index)" ng-bind="item.name"></td>
-				<td ng-if="!editMode" ng-click="edit($index)">
-					<input type="text" ng-model="emptyRow.name">
+				<td ng-if="!item.editMode" ng-click="edit($index)" ng-bind="item.name"></td>
+				<td ng-if="item.editMode" ng-click="edit($index)">
+					<input type="text" ng-model="item.name">
 				</td>
 				
-				<td ng-if="editMode" ng-click="edit($index)" ng-bind="item.quantity"></td>
-				<td ng-if="!editMode" ng-click="edit($index)">
-					<input type="text" ng-model="emptyRow.quantity">
+				<td ng-if="!item.editMode" ng-click="edit($index)" ng-bind="item.quantity"></td>
+				<td ng-if="item.editMode" ng-click="edit($index)">
+					<input type="text" ng-model="item.quantity">
 				</td>
 				
-				<td ng-if="editMode" ng-click="edit($index)" ng-bind="item.comment.text"></td>
-				<td ng-if="!editMode" ng-click="edit($index)">
-					<input type="text" ng-model="emptyRow.comment.text">
+				<td ng-if="!item.editMode" ng-click="edit($index)" ng-bind="item.comment.text"></td>
+				<td ng-if="item.editMode" ng-click="edit($index)">
+					<input type="text" ng-model="item.comment.text">
 				</td>
 				
 				<td data-ng-click="removeRow($index)">+</td>

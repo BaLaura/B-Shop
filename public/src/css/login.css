@@ -1,7 +1,14 @@
-  body {
-    padding-top: 120px;
-    padding-bottom: 40px;
+ 
+ div.ng-scope {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
   }
+
+  div#body.ng-scope{
+     padding:10px;
+   padding-bottom:60px
+  }
+
   .btn 
   {
    outline:0;

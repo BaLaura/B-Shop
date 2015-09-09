@@ -16,7 +16,7 @@ var ListRouter = function(app, Mongoose) {
 	*/
 	
 	app.get("/list/:id",function(request, response){
-		List.findOne().populate("users").exec(function(error,result){
+		List.findOne({_id: request.params.id}).populate("users").exec(function(error,result){
 			response.status(200).json(result);
 		});
 	});
