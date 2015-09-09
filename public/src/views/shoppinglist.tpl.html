@@ -2,7 +2,13 @@
 	<div class="filters">
 		<p>Filter by:</p>
 		<div class="filter-by">Next Events</div>
+		<table>
+			<tr ng-repeat = "list in nextEvents" ng-click="editList(list)" ng-bind="list.title">
+		</table>
 		<div class="filter-by">Past Events</div>
+		<table>
+			<tr ng-repeat = "list in pastEvents" ng-click="editList(list)" ng-bind="list.title">
+		</table>
 		<div class="btn-group">
 		  <button type="button" class="btn btn-danger">Category</button>
 		  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

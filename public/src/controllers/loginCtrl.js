@@ -13,7 +13,7 @@ angular.module('b-shop')
 	    				window.alert('Success');
 	    				$location.path('/dash');
 	    			} else {
-	    				window.alert('Wrong email or passowrd! Try again!');
+	    				window.alert('Wrong email or password! Try again!');
 	    			}
 
 	    		});

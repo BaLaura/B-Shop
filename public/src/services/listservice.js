@@ -2,7 +2,7 @@ angular.module("b-shop")
 	.service("listservice",function(httpservice,$rootScope){
 		return {
 			getLists: function(){
-				return httpservice.handle("GET","/list");
+				return httpservice.handle("GET","/lists");
 			},
 			getList: function(id){
 				return httpservice.handle("GET","/list/" + id);

@@ -30,14 +30,14 @@ angular.module("b-shop",["ngRoute", "720kb.datepicker"])
 		});
 	}).run(function($rootScope, $location) {
 
-    // $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-    //   if ($rootScope.loggedInUser == null) {
-    //     if ( next.templateUrl === "src/views/loginView.tpl.html") {
-    //     } else {
-    //       $location.path("/");
-    //     }
-    //   }
-    // });
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ($rootScope.loggedInUser == null) {
+        if ( next.templateUrl === "src/views/loginView.tpl.html") {
+        } else {
+          $location.path("/");
+        }
+      }
+    });
     $rootScope.redirectTo = function(location) {
 			$location.path(location);
 		}

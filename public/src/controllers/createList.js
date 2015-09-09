@@ -29,7 +29,7 @@ angular.module('b-shop')
 		n[11] = "December";
 		var month = n[$scope.listItems.created.getMonth()];
 		var day = $scope.listItems.created.getDate();
-		$scope.minDate = month + " " + day + ", " + year;
+		$scope.minDate = month + " " + day + " " + year;
 
 		/* Save list - values from form */
 		$scope.saveList = function() {
@@ -70,5 +70,13 @@ angular.module('b-shop')
 				}
 			}
 			return true;
+		}
+
+		$scope.init = function() {
+			$scope.$watch("listItems.eventDate", function(newValue, oldValue) {
+				console.log(newValue, oldValue, $scope.listItems.eventDate);
+
+
+			});
 		}
 	});
