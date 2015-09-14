@@ -1,17 +1,20 @@
 angular.module('b-shop')
-	.controller('addProductsCtrl', function($scope, $timeout, listservice){
+	.controller('addProductsCtrl', function($scope, $timeout,$rootScope, listservice){
 		
 		$scope.selectedItem;
 
 		$scope.init = function(){
-			listservice.getList("55ed5b06f5e315b00e7ae5f7").success(function(data){
+			console.log($rootScope.currentId);
+			listservice.getList($rootScope.currentId).success(function(data){
 				$scope.list = data;
+				console.log('Initializare: ', $scope.list);
 			});
 		};
 
 		$scope.addProduct = function() {
 			listservice.updateList($scope.list).success(function(data) {
 				$scope.list = data;
+				console.log('update: ', $scope.list);
 				$timeout();
 			});
 

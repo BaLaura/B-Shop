@@ -1,5 +1,5 @@
 angular.module('b-shop')
-.controller('shoppinglistCtrl', function($scope, listservice,$timeout,$location) {
+.controller('shoppinglistCtrl', function($rootScope, $scope, listservice,$timeout,$location) {
 		listservice.getLists().success(function(data){
 			$scope.allLists = data;
 			$scope.nextEvents = [];
@@ -32,6 +32,7 @@ angular.module('b-shop')
 
 			}
 			$scope.editList = function (list){
+				$rootScope.currentId = list._id;
 				$location.path('/list/' + list._id);
 			}
 		});
