@@ -21,10 +21,11 @@ angular.module('b-shop')
 	    	}    	
     	} else {
     		if (loginservice.getItem('user')!= null){
-    				$rootScope.loggedInUser=loginservice.getItem('user');
-    				$rootScope.logged = true;
-    				window.alert('Welcome back!');
-    				$location.path('/dash');
+    			console.log("asdgasjd", loginservice.getItem('user'));
+				$rootScope.loggedInUser=loginservice.getItem('user');
+				$rootScope.logged = true;
+				window.alert('Welcome back!');
+				$location.path('/dash');
     		};
     	}
     });

@@ -1,5 +1,5 @@
 angular.module('b-shop')
-	.controller('usersCtrl', function($timeout, $scope,$location,$rootScope,userservice,groupservice,loginservice){
+	.controller('usersCtrl', function($timeout, $scope,$location,$rootScope,userservice,loginservice){
 		userservice.getUsers().success(function(data){
 			$scope.userList = data;
 			$timeout();
@@ -10,7 +10,7 @@ angular.module('b-shop')
 		$scope.cancelUser = function() {
 			$scope.visible = false;
 		}
-		$scope.addGroup = function(){
+		/*$scope.addGroup = function(){
 			$scope.gVisible = true;
 			$scope.userGroup = [];
 		}
@@ -38,7 +38,7 @@ angular.module('b-shop')
 			groupservice.createGroup($scope.groupData).success(function(data){
 				$scope.groupData = data;
 			});
-		}
+		}*/
 
 		$scope.saveUser = function(){
 			$scope.userData = {
@@ -51,6 +51,15 @@ angular.module('b-shop')
 			userservice.createUser($scope.userData).success(function(data){
 				$scope.userData = data;
 			});
-			$location.path('/users');
+			window.alert("Great succes!");
+			$location.path('/dash');
+		}
+		$scope.acces = function (){
+			console.log($rootScope.loggedInUser);
+			if($rootScope.loggedInUser.type!=1){
+				return false;
+			} else {
+				return true;
+			}
 		}
 	});
