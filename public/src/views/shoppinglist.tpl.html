@@ -13,15 +13,7 @@
 
 <div class="shoppinglist-container" ng-controller="shoppinglistCtrl">
 	<div class="filters">
-		<p>Filter by:</p>
-		<div class="filter-by">Next Events</div>
-		<table>
-			<tr ng-repeat = "list in nextEvents" ng-click="editList(list)" ng-bind="list.title">
-		</table>
-		<div class="filter-by">Past Events</div>
-		<table>
-			<tr ng-repeat = "list in pastEvents" ng-click="editList(list)" ng-bind="list.title">
-		</table>
+	<a type="button" align='center' class="btn btn-primary" ng-click="redirectTo('/list')">Create new list</a>
 		<div class="btn-group">
 		  <button type="button" class="btn btn-primary">Category</button>
 		  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,9 +28,26 @@
 		    <li><a href="#">Cat. 3</a></li>
 		  </ul>
 		</div>
+		<h1 align = 'center'>Next Events</h1>
+		<table align = "center" class="table table-hover" style="width:50%;">
+			<thead><td>Name</td><td>Deadline</td></thead>
+			<tbody>				
+			<tr ng-repeat = "list in nextEvents" ng-click="editList(list)">
+				<td  ng-bind="list.title"></td>
+				<td  ng-bind="list.deadline"></td>
+			</tr>
+			</tbody>
+		</table>
+		<h1 align = 'center'>Past Events</h1>
+		<table align = "center" class="table table-hover" style="width:50%;">
+			<thead><td>Name</td><td>Deadline</td></thead>
+			<tbody>				
+			<tr ng-repeat = "list in pastEvents" ng-click="editList(list)">
+				<td  ng-bind="list.title"></td>
+				<td  ng-bind="list.deadline"></td>
+			</tr>
+			</tbody>
+		</table>
 	</div>
 	<br>
-	<div class="create-list">
-		<a type="button" class="btn btn-primary" ng-click="redirectTo('/list')">Create new list</a>
-	</div>
 </div>
