@@ -1,3 +1,16 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="">
+      </a>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary btn-sm btn-responsive"
+	style="float:right;" ng-click="logout()">Log out</button>
+	<button type="submit" ng-click="back()" class="btn btn-primary btn-sm">Back</button>
+</nav>
+
 <div class="shoppinglist-container" ng-controller="shoppinglistCtrl">
 	<div class="filters">
 		<p>Filter by:</p>
@@ -10,8 +23,8 @@
 			<tr ng-repeat = "list in pastEvents" ng-click="editList(list)" ng-bind="list.title">
 		</table>
 		<div class="btn-group">
-		  <button type="button" class="btn btn-danger">Category</button>
-		  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  <button type="button" class="btn btn-primary">Category</button>
+		  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		    <span class="caret"></span>
 		    <span class="sr-only">Toggle Dropdown</span>
 		  </button>
@@ -24,7 +37,8 @@
 		  </ul>
 		</div>
 	</div>
+	<br>
 	<div class="create-list">
-		<a type="button" class="btn btn-danger" ng-click="redirectTo('/list')">Create new list</a>
+		<a type="button" class="btn btn-primary" ng-click="redirectTo('/list')">Create new list</a>
 	</div>
 </div>

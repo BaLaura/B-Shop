@@ -6,6 +6,7 @@ angular.module('b-shop')
 		});
 		$scope.addUser = function(){
 			$scope.visible = true;
+			
 		}
 		$scope.cancelUser = function() {
 			$scope.visible = false;
@@ -13,6 +14,7 @@ angular.module('b-shop')
 		$scope.addGroup = function(){
 			$scope.gVisible = true;
 			$scope.userGroup = [];
+			
 		}
 		$scope.cancelGroup = function(){
 			$scope.gVisible = false;
@@ -38,6 +40,8 @@ angular.module('b-shop')
 			groupservice.createGroup($scope.groupData).success(function(data){
 				$scope.groupData = data;
 			});
+			$scope.gVisible = false;
+			
 		}
 
 		$scope.saveUser = function(){
@@ -52,5 +56,12 @@ angular.module('b-shop')
 				$scope.userData = data;
 			});
 			$location.path('/users');
+			$scope.visible = false;
+			
+			
 		}
+
+		$scope.back = function(){
+			$location.path('/shoppinglists/');
+		};
 	});

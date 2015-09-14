@@ -79,4 +79,8 @@ angular.module('b-shop')
 
 			});
 		}
+
+		$scope.back = function(){
+			$location.path('/shoppinglists/');
+		};
 	});
