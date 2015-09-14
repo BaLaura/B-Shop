@@ -6,6 +6,7 @@ angular.module('b-shop')
 		});
 		$scope.addUser = function(){
 			$scope.visible = true;
+			
 		}
 		$scope.cancelUser = function() {
 			$scope.visible = false;
@@ -13,6 +14,7 @@ angular.module('b-shop')
 		/*$scope.addGroup = function(){
 			$scope.gVisible = true;
 			$scope.userGroup = [];
+			
 		}
 		$scope.cancelGroup = function(){
 			$scope.gVisible = false;
@@ -38,7 +40,11 @@ angular.module('b-shop')
 			groupservice.createGroup($scope.groupData).success(function(data){
 				$scope.groupData = data;
 			});
+
 		}*/
+
+			
+
 
 		$scope.saveUser = function(){
 			$scope.userData = {
@@ -51,6 +57,8 @@ angular.module('b-shop')
 			userservice.createUser($scope.userData).success(function(data){
 				$scope.userData = data;
 			});
+			$scope.visible = false;
+
 			window.alert("Great succes!");
 			$location.path('/dash');
 		}
@@ -61,5 +69,10 @@ angular.module('b-shop')
 			} else {
 				return true;
 			}
+
 		}
+
+		$scope.back = function(){
+			$location.path('/shoppinglists/');
+		};
 	});

@@ -42,5 +42,11 @@ angular.module('b-shop')
 				$rootScope.currentId = list._id;
 				$location.path('/list/' + list._id);
 			}
+
+			
 		});
+
+		$scope.back = function(){
+			$location.path('/dash/');
+		};
 });

@@ -1,3 +1,6 @@
+<div>
+  <button type="submit" ng-click="back()" class="btn btn-primary btn-sm">Back</button>
+</div>
 <div class="container" ng-controller="createListCtrl" ng-init="init()">
 	<h1>Create List ! </h1>
 
@@ -36,6 +39,8 @@
           <div class="one-user" ng-repeat="m in onlyUsers">{{ m.name }}<span class="delete-invited-user" ng-click="uninviteUser($index)"> x</span></div>
         </div>
   		</div>
+
+      <br>
  
 		<button ng-click="saveList()" type="submit" class="btn btn-primary btn-lg">Create</button>
 

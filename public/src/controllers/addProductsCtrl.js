@@ -1,5 +1,5 @@
 angular.module('b-shop')
-	.controller('addProductsCtrl', function($scope, $timeout,$rootScope, listservice){
+	.controller('addProductsCtrl', function($location, $scope, $timeout,$rootScope, listservice){
 		
 		$scope.selectedItem;
 
@@ -9,6 +9,7 @@ angular.module('b-shop')
 				$scope.list = data;
 				console.log('Initializare: ', $scope.list);
 			});
+			$scope.visibleSave = false;
 		};
 
 		$scope.addProduct = function() {
@@ -19,6 +20,8 @@ angular.module('b-shop')
 			});
 
 			$scope.visible = false;
+			$scope.visibleSave = false;
+
 		};
 
 		$scope.createEmptyRow = function() {
@@ -33,16 +36,21 @@ angular.module('b-shop')
 				}
 			});
 			selectItem(0);
+			$scope.visibleSave = true;
 		};
 
 		$scope.edit = function (index){
 			unselectItem();
 			selectItem(index);
+			$scope.visible = true;
+			$scope.visibleSave = true;
+
 		};
 
 		$scope.cancel = function() {
 			unselectItem();
 			$scope.visible = false;
+			$scope.visibleSave = false;
 		};
 
 		$scope.removeRow = function (index) {
@@ -64,5 +72,17 @@ angular.module('b-shop')
         		$scope.selectedItem = null;
         	}
         }
+
+        $scope.deleteList = function(){
+        	listservice.deleteList($scope.list).success(function(data){
+        		$scope.list = data;
+        	});
+        	$location.path('/shoppinglists/');
+        	window.alert('I hope you are sure!');
+        };
+
+        $scope.back = function(){
+			$location.path('/shoppinglists/');
+		};
 		
 	});

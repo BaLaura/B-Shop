@@ -1,6 +1,16 @@
-<div class="dash" ng-hidden="visibility()">
-	<button type="button" class="btn btn-primary btn-sm btn-responsive"
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="">
+      </a>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary btn-sm btn-responsive"
 	style="float:right;" ng-click="logout()">Log out</button>
+</nav>
+<div class="dash" ng-hidden="visibility()">
 	<p> You logged in, now what? </p>
 	<div class="btn-group" role="group" aria-label="...">
 		<button type="button" class="btn btn-primary btn-sm btn-responsive" ng-click="redirectTo('/shoppinglists')">Shopping List</button>
