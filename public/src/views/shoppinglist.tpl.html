@@ -32,9 +32,10 @@
 		<table align = "center" class="table table-hover" style="width:50%;">
 			<thead><td>Name</td><td>Deadline</td></thead>
 			<tbody>				
-			<tr ng-repeat = "list in nextEvents" ng-click="editList(list)">
-				<td  ng-bind="list.title"></td>
-				<td  ng-bind="list.deadline"></td>
+			<tr ng-repeat = "list in nextEvents">
+				<td ng-click="editList(list)" ng-bind="list.title"></td>
+				<td ng-click="editList(list)" ng-bind="list.deadline"></td>
+				<td><button type="button" class="btn btn-danger" ng-click="deletenextList(list, $index)">Delete</td>
 			</tr>
 			</tbody>
 		</table>
@@ -42,9 +43,10 @@
 		<table align = "center" class="table table-hover" style="width:50%;">
 			<thead><td>Name</td><td>Deadline</td></thead>
 			<tbody>				
-			<tr ng-repeat = "list in pastEvents" ng-click="editList(list)">
-				<td  ng-bind="list.title"></td>
-				<td  ng-bind="list.deadline"></td>
+			<tr ng-repeat = "list in pastEvents">
+				<td ng-click="editList(list)"  ng-bind="list.title"></td>
+				<td ng-click="editList(list)" ng-bind="list.deadline"></td>
+				<td><button type="button" class="btn btn-danger" ng-click="deletepastList(list, $index)">Delete</td>
 			</tr>
 			</tbody>
 		</table>
