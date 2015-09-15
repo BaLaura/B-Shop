@@ -32,26 +32,52 @@
 		<table align = "center" class="table table-hover" style="width:50%;">
 			<thead><td>Name</td><td>Deadline</td></thead>
 			<tbody>				
-			<tr ng-repeat = "list in nextEvents">
+			<tr class="paginationclass" ng-repeat = "list in nextEvents | pagination: curPage * pageSize | limitTo: pageSize">
 				<td ng-click="editList(list)" ng-bind="list.title"></td>
 				<td ng-click="editList(list)" ng-bind="list.deadline"></td>
 				<td><button type="button" class="btn btn-danger" ng-click="deletenextList(list, $index)">Delete</td>
 			</tr>
 			</tbody>
 		</table>
+		<div style="text-align:center;"class="pagination pagination-centered" ng-show="nextEvents.length">
+			<ul class="pagination-controle pagination">
+ 				<li>
+  					<button type="button" class="btn btn-primary" ng-disabled="curPage == 0" ng-click="curPage=curPage-1"> &lt; PREV</button>
+ 				</li>
+ 				<li>
+ 					<span>Page {{curPage + 1}} of {{ numberOfPagesNext() }}</span>
+ 				</li>
+ 				<li>
+ 					<button type="button" class="btn btn-primary" ng-disabled="curPage >= nextEvents.length/pageSize - 1" ng-click="curPage = curPage+1">NEXT &gt;</button>
+ 				</li>
+			</ul>
+		</div>
 		</div>
 		<div ng-show="pastVisible">
 		<h1 align = 'center'>Past Events</h1>
 		<table align = "center" class="table table-hover" style="width:50%;">
 			<thead><td>Name</td><td>Deadline</td></thead>
 			<tbody>				
-			<tr ng-repeat = "list in pastEvents">
+			<tr class="paginationclass" ng-repeat = "list in pastEvents | pagination: curPage * pageSize | limitTo: pageSize">
 				<td ng-click="editList(list)"  ng-bind="list.title"></td>
 				<td ng-click="editList(list)" ng-bind="list.deadline"></td>
 				<td><button type="button" class="btn btn-danger" ng-click="deletepastList(list, $index)">Delete</td>
 			</tr>
 			</tbody>
 		</table>
+		<div style="text-align:center;"class="pagination pagination-centered" ng-show="pastEvents.length">
+			<ul class="pagination-controle pagination">
+ 				<li>
+  					<button type="button" class="btn btn-primary" ng-disabled="curPage == 0" ng-click="curPage=curPage-1"> &lt; PREV</button>
+ 				</li>
+ 				<li>
+ 					<span>Page {{curPage + 1}} of {{ numberOfPagesPast() }}</span>
+ 				</li>
+ 				<li>
+ 					<button type="button" class="btn btn-primary" ng-disabled="curPage >= pastEvents.length/pageSize - 1" ng-click="curPage = curPage+1">NEXT &gt;</button>
+ 				</li>
+			</ul>
+		</div>
 		</div>
 	</div>
 	<br>

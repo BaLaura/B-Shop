@@ -39,9 +39,13 @@ var UserRouter = function(app, Mongoose) {
 		});
 	});
 	app.post("/login", function(request,response){
-		User.findOne({email:request.body.mail,password:request.body.password},function(error, result){
-			response.status(200).json(result);
-		})
+		if (request.body && request.body.mail && request.body.password) {
+			User.findOne({email:request.body.mail,password:request.body.password},function(error, result){
+				response.status(200).json(result);
+			});
+		} else {
+			response.status(200).json(null);
+		}
 	});
 	/**
 	 * Update an user.

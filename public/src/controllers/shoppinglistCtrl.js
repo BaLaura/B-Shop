@@ -1,5 +1,5 @@
 angular.module('b-shop')
-.controller('shoppinglistCtrl', function($rootScope, $scope, listservice,$timeout,$location) {
+.controller('shoppinglistCtrl', function(loginservice, $rootScope, $scope, listservice,$timeout,$location) {
 		listservice.getLists().success(function(data){
 			$rootScope.allLists = data;
 			$scope.visibleLists = [];
@@ -8,6 +8,9 @@ angular.module('b-shop')
 			$scope.today = new Date();
 			$scope.nextVisible = true;
 			$scope.pastVisible = true;
+			$scope.curPage = 0;
+ 			$scope.pageSize = 3;
+
 			var n = new Array();
 				n[0] = "January";
 				n[1] = "February";
@@ -77,4 +80,32 @@ angular.module('b-shop')
         	});
 
         };
+
+        $scope.logout = function(){
+			console.log("log out")
+			window.alert('Logged out')
+			loginservice.removeItem('user');
+			$rootScope.loggedInUser = null;
+	    	$location.path('/')
+		}
+		if ($rootScope.logged){
+			console.log('Logged in!');
+		}
+
+		$scope.numberOfPagesPast = function() {
+			return Math.ceil($scope.pastEvents.length / $scope.pageSize);
+		};
+
+		$scope.numberOfPagesNext = function() {
+			return Math.ceil($scope.nextEvents.length / $scope.pageSize);
+		};
+
+		
+});
+
+angular.module('b-shop').filter('pagination', function(){
+	return function(input, start){
+  		start = +start;
+  		return input.slice(start);
+ 	};
 });

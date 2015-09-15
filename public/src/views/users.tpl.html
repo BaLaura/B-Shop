@@ -22,7 +22,8 @@
 			<tr ng-repeat="user in userList">
 				<td ng-bind="user.name"></td>
 				<td ng-bind="user.email"></td>
-				<td ><button type="button" class="btn btn-danger" ng-disabled="isAdmin()" ng-click="removeUser(user, $index)">Delete</button></td>
+				<td ng-if="isAdmin()"><button type="button" class="btn btn-danger" ng-click="removeUser(user, $index)">Delete</button></td>
+				<td ng-if="!isAdmin()"></td>
 			</tr>
 		</tbody>
 

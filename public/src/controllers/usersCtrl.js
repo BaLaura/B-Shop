@@ -76,14 +76,26 @@ angular.module('b-shop')
 		};
 		$scope.isAdmin = function(){
 			if ($rootScope.loggedInUser.type == 1){
-				return false;
-			} else {
 				return true;
+			} else {
+				return false;
 			}
 		}
 		$scope.removeUser = function(user, $index){
 			userservice.deleteUser(user).success(function(data){
 				$scope.userList.splice($index, 1);
 			});
+		}
+
+		$scope.logout = function(){
+			
+			window.alert('Logged out')
+			loginservice.removeItem('user');
+			$rootScope.loggedInUser = null;
+			console.log($rootScope.loggedInUser)
+	    	$location.path('/')
+		}
+		if ($rootScope.logged){
+			console.log('Logged in!');
 		}
 	});

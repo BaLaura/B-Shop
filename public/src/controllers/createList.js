@@ -59,6 +59,7 @@ angular.module('b-shop')
 		/* Add user to invited list/Remove user from invited list*/
 		$scope.inviteUser = function(user) {
 			$scope.onlyUsers.push(user);
+			$('input[type="text"], textarea').val('');
 		}
 		$scope.uninviteUser = function(index) {
 			$scope.onlyUsers.splice(index, 1);

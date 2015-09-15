@@ -3,8 +3,8 @@
 
 	<form class="form-signin">
 		<h1 class="form-signin-heading text-muted">Sign In</h1>
-		<input type="text" ng-model="eMail" class="form-control" placeholder="eMail" required="" autofocus="">
-		<input type="password" ng-model="password" class="form-control" placeholder="Password" required="">
+		<input type="text" ng-model="eMail" ng-enter="submitEmail();" class="form-control" placeholder="eMail" required="" autofocus="">
+		<input type="password" ng-model="password" ng-enter="submitPass();" class="form-control" placeholder="Password" required="">
 		<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="loginEvent()">
 			Sign In
 		</button>
