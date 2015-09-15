@@ -1,5 +1,5 @@
 angular.module('b-shop')
-	.controller('addProductsCtrl', function($location, $scope, $timeout,$rootScope, listservice){
+	.controller('addProductsCtrl', function($routeParams,$route,$location, $scope, $timeout,$rootScope, listservice){
 		
 		$scope.selectedItem;
 
@@ -25,6 +25,8 @@ angular.module('b-shop')
 		};
 
 		$scope.createEmptyRow = function() {
+			selectItem.editMode = false;
+			console.log("createEmptyRow function",  selectItem.editMode)
 			unselectItem();
 			$scope.visible = true;
 
@@ -40,25 +42,27 @@ angular.module('b-shop')
 		};
 
 		$scope.edit = function (index){
+			console.log("edit function", selectItem.editMode)
+
+
+			selectItem.editMode = true;
 			unselectItem();
 			selectItem(index);
 			$scope.visible = true;
 			$scope.visibleSave = true;
+			console.log(selectItem.editMode)
 
-		};
-
-		$scope.cancel = function() {
-			unselectItem();
-			$scope.visible = false;
-			$scope.visibleSave = false;
 		};
 
 		$scope.removeRow = function (index) {
+			console.log("removeRow function")
 			$scope.list.products.splice(index, 1);
 
 			listservice.updateList($scope.list).success(function(data){
 				$scope.list = data;
 			});
+			$scope.visible = false;
+			$scope.visibleSave = false;
         };
 
         function selectItem(index) {
@@ -73,16 +77,26 @@ angular.module('b-shop')
         	}
         }
 
-        $scope.deleteList = function(){
-        	listservice.deleteList($scope.list).success(function(data){
-        		$scope.list = data;
-        	});
-        	$location.path('/shoppinglists/');
-        	window.alert('I hope you are sure!');
-        };
 
         $scope.back = function(){
 			$location.path('/shoppinglists/');
+		};
+
+		$scope.cancel = function() {	
+			if(selectItem.editMode){
+				console.log("cancel function")
+				unselectItem();
+				$scope.visible = false;
+				$scope.visibleSave = false;
+			}
+			else {
+				$scope.visibleSave = false;
+				$scope.visible = false;
+				$scope.removeRow(0);
+			}
+
+				
+
 		};
 		
 	});

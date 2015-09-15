@@ -1,7 +1,7 @@
 angular.module('b-shop')
 .controller('shoppinglistCtrl', function($rootScope, $scope, listservice,$timeout,$location) {
 		listservice.getLists().success(function(data){
-			$scope.allLists = data;
+			$rootScope.allLists = data;
 			$scope.visibleLists = [];
 			$scope.nextEvents = [];
 			$scope.pastEvents = [];
@@ -23,7 +23,7 @@ angular.module('b-shop')
 				n[11] = "December";
 			for(i=0;i<$scope.allLists.length;i++){
 				$scope.userAllowed = false;
-				for(j=0;j<$scope.allLists[i].users.length;j++){
+				for(j=0;j<$rootScope.allLists[i].users.length;j++){
 					if ($scope.allLists[i].users[j].name==$rootScope.loggedInUser.name){
 						$scope.userAllowed = true;
 					}
@@ -63,4 +63,18 @@ angular.module('b-shop')
 		$scope.back = function(){
 			$location.path('/dash/');
 		};
+
+		$scope.deletenextList = function(list, $index){
+        	listservice.deleteList(list).success(function(data){
+        		$scope.nextEvents.splice($index, 1);
+        	});
+
+       	};
+
+       	$scope.deletepastList = function(list, $index){
+        	listservice.deleteList(list).success(function(data){
+        		$scope.pastEvents.splice($index, 1);
+        	});
+
+        };
 });
