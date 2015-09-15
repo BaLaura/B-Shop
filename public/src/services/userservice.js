@@ -23,7 +23,9 @@ angular.module("b-shop")
 			},
 			createUser: function(data){
 				return httpservice.handle("POST","/user", data);
+			},
+			deleteUser: function(data){
+				return httpservice.handle("DELETE","/user/" + data._id);
 			}
-
 		};
 	});

@@ -21,13 +21,13 @@
 		    <span class="sr-only">Toggle Dropdown</span>
 		  </button>
 		  <ul class="dropdown-menu">
-		  	<li><a href="#">All</a></li>
+		  	<li ng-click="showAll()"><a>All</a></li>
 		  	<li role="separator" class="divider"></li>
-		    <li><a href="#">Cat. 1</a></li>
-		    <li><a href="#">Cat. 2</a></li>
-		    <li><a href="#">Cat. 3</a></li>
+		    <li ng-click="showNext()"><a >Next Events</a></li>
+		    <li ng-click="showPast()"><a >Past Events</a></li>
 		  </ul>
 		</div>
+		<div ng-show="nextVisible">
 		<h1 align = 'center'>Next Events</h1>
 		<table align = "center" class="table table-hover" style="width:50%;">
 			<thead><td>Name</td><td>Deadline</td></thead>
@@ -38,6 +38,8 @@
 			</tr>
 			</tbody>
 		</table>
+		</div>
+		<div ng-show="pastVisible">
 		<h1 align = 'center'>Past Events</h1>
 		<table align = "center" class="table table-hover" style="width:50%;">
 			<thead><td>Name</td><td>Deadline</td></thead>
@@ -48,6 +50,7 @@
 			</tr>
 			</tbody>
 		</table>
+		</div>
 	</div>
 	<br>
 </div>

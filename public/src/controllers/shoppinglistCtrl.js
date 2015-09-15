@@ -6,6 +6,8 @@ angular.module('b-shop')
 			$scope.nextEvents = [];
 			$scope.pastEvents = [];
 			$scope.today = new Date();
+			$scope.nextVisible = true;
+			$scope.pastVisible = true;
 			var n = new Array();
 				n[0] = "January";
 				n[1] = "February";
@@ -41,6 +43,18 @@ angular.module('b-shop')
 			$scope.editList = function (list){
 				$rootScope.currentId = list._id;
 				$location.path('/list/' + list._id);
+			}
+			$scope.showNext = function() {
+				$scope.nextVisible = true;
+				$scope.pastVisible = false;
+			}
+			$scope.showPast = function() {
+				$scope.nextVisible = false;
+				$scope.pastVisible = true;
+			}
+			$scope.showAll = function() {
+				$scope.nextVisible = true;
+				$scope.pastVisible = true;
 			}
 
 			

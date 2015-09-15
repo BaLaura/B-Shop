@@ -16,11 +16,13 @@
 		<thead>
 			<td >Name</td>
 			<td >E-mail</td>
+			<td >Delete</td>
 		</thead>
 		<tbody>
 			<tr ng-repeat="user in userList">
 				<td ng-bind="user.name"></td>
 				<td ng-bind="user.email"></td>
+				<td ><button type="button" class="btn btn-danger" ng-disabled="isAdmin()" ng-click="removeUser(user, $index)">Delete</button></td>
 			</tr>
 		</tbody>
 

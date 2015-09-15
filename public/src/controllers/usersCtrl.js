@@ -58,9 +58,8 @@ angular.module('b-shop')
 				$scope.userData = data;
 			});
 			$scope.visible = false;
-
-			window.alert("Great succes!");
 			$location.path('/dash');
+			$location.path('/users');
 		}
 		$scope.acces = function (){
 			console.log($rootScope.loggedInUser);
@@ -75,4 +74,16 @@ angular.module('b-shop')
 		$scope.back = function(){
 			$location.path('/shoppinglists/');
 		};
+		$scope.isAdmin = function(){
+			if ($rootScope.loggedInUser.type == 1){
+				return false;
+			} else {
+				return true;
+			}
+		}
+		$scope.removeUser = function(user, $index){
+			userservice.deleteUser(user).success(function(data){
+				$scope.userList.splice($index, 1);
+			});
+		}
 	});

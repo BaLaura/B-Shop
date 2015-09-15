@@ -24,7 +24,6 @@ angular.module('b-shop')
     			console.log("asdgasjd", loginservice.getItem('user'));
 				$rootScope.loggedInUser=loginservice.getItem('user');
 				$rootScope.logged = true;
-				window.alert('Welcome back!');
 				$location.path('/dash');
     		};
     	}
